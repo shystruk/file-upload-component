@@ -1,0 +1,26 @@
+<div class="files-view">
+
+    <div class="files-view-wrapper">
+
+        <div class="files-view-item" ng-repeat="file in filesViewCtrl.files track by $index">
+            <div class="files-view-thumbnail"
+                 title="{{file.name}}"
+                 ng-class="file.thumbnail"
+                 ng-click="filesViewCtrl.downloadFile($index)">
+                    <img ng-show="file.preview.backgroundImage" ng-src="{{file.preview.backgroundImage}}"
+                         alt="{{file.name}}" />
+            </div>
+
+            <div class="files-view-name" ng-click="filesViewCtrl.downloadFile($index)" title="{{file.name}}">
+                {{file.name}}
+            </div>
+
+            <span ng-if="filesViewCtrl.removeFile" class="files-view-remove"
+                  ng-click="filesViewCtrl.removeFile($index)">
+                x
+            </span>
+        </div>
+
+    </div>
+
+</div>

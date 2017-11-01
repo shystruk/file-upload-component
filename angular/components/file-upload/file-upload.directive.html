@@ -1,0 +1,9 @@
+<div class="file-upload">
+    <input type="file" name="file" class="fileUpload" multiple/>
+    <button ng-click="openUploadDialog()">Add File</button>
+</div>
+
+<files-view files="fileUploadCtrl.files"
+            remove-file="fileUploadCtrl.removeFile(index)"
+            download-file="fileUploadCtrl.downloadFile(index)">
+</files-view>
