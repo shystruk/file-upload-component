@@ -19,19 +19,19 @@
         },
 
         ICONS: {
-            JPG: 'icon_class_jpg',
-            DOC: 'icon_class_doc',
-            XLS: 'icon_class_xls',
-            PPT: 'icon_class_ppt',
-            TXT: 'icon_class_txt',
-            AVI: 'icon_class_avi',
-            ZIP: 'icon_class_zip',
-            PDF: 'icon_class_pdf',
-            HTML: 'icon_class_html',
-            JS: 'icon_class_js',
-            JAVA: 'icon_class_java',
-            XML: 'icon_class_xml',
-            DEFAULT: 'icon_class_default'
+            JPG: 'fa-file-image-o',
+            DOC: 'fa-file-word-o',
+            XLS: 'fa-file-excel-o',
+            PPT: 'fa-file-powerpoint-o',
+            TXT: 'fa-file-text-o',
+            AVI: 'fa-file-video-o',
+            ZIP: 'fa-file-archive-o',
+            PDF: 'fa-file-pdf-o',
+            HTML: 'fa-html5',
+            JS: 'fa-file-text-o',
+            JAVA: 'fa-file-text-o',
+            XML: 'fa-file-text-o',
+            DEFAULT: 'fa-file'
         },
     });
 })();

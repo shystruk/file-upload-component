@@ -13,6 +13,7 @@
 .files-view-thumbnail {
     width: 60px;
     height: 60px;
+    display: block;
     position: relative;
     font-size: 60px;
     text-align: center;

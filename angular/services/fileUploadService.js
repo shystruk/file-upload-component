@@ -12,16 +12,15 @@
     angular.module('app').factory('fileUploadService', function ($q, FILE_UPLOAD) {
 
         return {
-            uploadFile: _uploadFile
+            uploadFile: uploadFile
         };
 
 
         /**
-         * @param {Object} file
+         * @param {File} file
          * @return {Promise}
-         * @private
          */
-        function _uploadFile(file) {
+        function uploadFile(file) {
             let defer = $q.defer(),
                 type = file.type ? file.type.split('/')[1] : '',
                 returnFile = {
@@ -29,9 +28,10 @@
                     type: file.type
                 };
 
-            _getPreview(type, file).then(preview => {
-                returnFile.preview = _buildPreviewContent(preview);
-                returnFile.thumbnail = preview ? '' : _getThumbnail(type);
+            _getContent(type, file).then(response => {
+                returnFile.preview = _buildPreviewContent(response.preview);
+                returnFile.thumbnail = response.preview ? '' : _getThumbnail(type);
+                returnFile.content = response.content;
 
                 defer.resolve(returnFile);
             });
@@ -41,28 +41,30 @@
 
         /**
          * @param {String} type
-         * @param {Object} file
+         * @param {File} file
          * @return {Promise}
          * @private
          */
-        function _getPreview(type, file) {
+        function _getContent(type, file) {
             let defer = $q.defer(),
                 isPreview = true;
 
             if (FILE_UPLOAD.TYPES.JPG.indexOf(type) >= 0) {
                 _readFile(file, isPreview).then(file => {
-                    defer.resolve(file);
+                    defer.resolve({preview: file});
                 });
             } else {
-                defer.resolve();
+                _readFile(file).then(content => {
+                    defer.resolve({content});
+                });
             }
 
             return defer.promise;
         }
 
         /**
-         * @param {Object} file
-         * @param {Boolean} isPreview
+         * @param {File} file
+         * @param {Boolean=} isPreview
          * @return {Promise}
          * @private
          */

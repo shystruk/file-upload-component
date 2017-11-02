@@ -41,31 +41,25 @@
                     self.$onInit = function() {
                         self.files = self.files || [];
 
-                        self.removeFile = (function () {
-                            let _removeFile = self.removeFile;
-
-                            return function (index) {
-                                _removeFile({index});
-                            }
-                        }());
-
                         self.downloadFile = (function () {
                             let _downloadFile = self.downloadFile;
 
                             return function (index) {
                                 let file = self.files[index];
 
-                                _downloadFile({index}).then(function (path) {
-                                    $timeout(() => {
-                                        let a = document.createElement('a');
-                                        document.body.appendChild(a);
-                                        a.style.display = 'none';
-                                        a.href = path;
-                                        a.download = file.name;
-                                        a.click();
-                                        document.body.removeChild(a);
-                                    }, 0);
-                                });
+                                _downloadFile({index})
+                                    .then(function (path) {
+                                        $timeout(() => {
+                                            let a = document.createElement('a');
+                                            document.body.appendChild(a);
+                                            a.style.display = 'none';
+                                            a.href = path;
+                                            a.download = file.name;
+                                            a.click();
+                                            document.body.removeChild(a);
+                                        }, 0);
+                                    })
+                                    .catch(angular.noop);
                             }
                         }());
                     };

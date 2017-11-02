@@ -37,49 +37,59 @@
 
                 self.files = [];
 
-                self.pushFiles = _pushFiles;
-                self.removeFile = _removeFile;
-                self.downloadFile = _downloadFile;
+                self.pushFiles = pushFiles;
+                self.removeFile = removeFile;
+                self.downloadFile = downloadFile;
 
 
                 /**
                  * @param {Object} event
                  * @return {Promise}
-                 * @private
                  */
-                function _pushFiles(event) {
+                function pushFiles(event) {
                     return $q.all(_.each(event.target.files, file => {
                         return _pushFileToScope(file);
                     }));
                 }
 
                 /**
-                 * @param {Object} file
-                 * @returns {Promise}
-                 */
-                function _pushFileToScope(file) {
-                    return fileUploadService.uploadFile(file).then(uploadedFile => {
-                        // save original file object which will be send to server
-                        uploadedFile.file = file;
-
-                        self.files.push(uploadedFile);
-                    });
-                }
-
-                /**
                  * @param {Number} index
-                 * @private
                  */
-                function _removeFile(index) {
+                function removeFile(index) {
                     self.files.splice(index, 1);
                 }
 
                 /**
-                 * @private
+                 * @param {Number} index
+                 * @return {Promise}
                  */
-                function _downloadFile() {
-                    // direct path to file
-                    return $q.when('https://en.wikipedia.org/wiki/Basketball')
+                function downloadFile(index) {
+                    let file = self.files[index];
+
+                    // You have two options here
+                    // 1. To get content from server
+                    // 2. By direct path to file
+
+                    if (file.content) {
+                        let blob = new Blob([file.content], { type: file.type });
+
+                        // https://github.com/eligrey/FileSaver.js/
+                        saveAs(blob, file.name);
+
+                        return $q.reject();
+                    }
+
+                    return $q.when('https://en.wikipedia.org/wiki/Basketball');
+                }
+
+                /**
+                 * @param {File} file
+                 * @returns {Promise}
+                 */
+                function _pushFileToScope(file) {
+                    return fileUploadService.uploadFile(file).then(uploadedFile => {
+                        self.files.push(uploadedFile);
+                    });
                 }
             }
         };
