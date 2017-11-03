@@ -14,22 +14,14 @@
             require: 'fileUpload',
 
             link: function ($scope, $element, $attrs, $controller) {
-                $scope.openUploadDialog = _openUploadDialog;
+                angular.element($element.find('input')[0]).bind('change', function (event) {
+                    let self = this;
 
-                setTimeout(() => {
-                    angular.element($element.find('input')[0]).bind('change', function (event) {
-                        let self = this;
-
-                        $controller.pushFiles(event).then(() => {
-                            // allow to upload the same file twice in a row
-                            self.value = '';
-                        });
+                    $controller.pushFiles(event).then(() => {
+                        // allow to upload the same file twice in a row
+                        self.value = '';
                     });
-                }, 0);
-
-                function _openUploadDialog() {
-                    document.getElementsByClassName('fileUpload')[0].click();
-                }
+                });
             },
 
             controller: function () {
