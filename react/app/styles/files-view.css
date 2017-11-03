@@ -1,0 +1,53 @@
+.files-view .files-view-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.files-view-item {
+    width: 87px;
+    margin: 15px 9px 12px 0;
+    position: relative;
+}
+
+.files-view-thumbnail {
+    width: 60px;
+    height: 60px;
+    display: block;
+    position: relative;
+    font-size: 60px;
+    text-align: center;
+    margin: 0 auto;
+    cursor: pointer;
+    overflow: hidden;
+}
+.files-view-thumbnail img {
+    display: block;
+    max-height: 100%;
+    height: auto;
+}
+.files-view-thumbnail:before {
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+}
+
+.files-view-name {
+    width: 100%;
+    margin-top: 4px;
+    text-align: center;
+    font-size: 12px;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.files-view-remove {
+    cursor: pointer;
+    top: -15px;
+    right: 4px;
+    position: absolute;
+}
