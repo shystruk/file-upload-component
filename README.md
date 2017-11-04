@@ -15,5 +15,6 @@ Here you may find React and Angular components for file upload with multiple fil
 ## React
 ```
 <File_Upload/>
+
 <Files_View files={files}/>
 ```
