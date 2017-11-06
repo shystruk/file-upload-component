@@ -1,6 +1,7 @@
 # File Upload components
 Here you may find React and Angular components for file upload with multiple file selection, preview images, download, file thumbnail.
 
+![](demo.gif)
 
 ## Angular
 ```

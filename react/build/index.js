@@ -38046,11 +38046,12 @@ var Files_View = function (_Component) {
                 return void saveAs(blob, file.name);
             }
 
-            Files_View.downloadFileByPath('https://en.wikipedia.org/wiki/Basketball');
+            Files_View.downloadFileByPath('https://static.pexels.com/photos/38136/pexels-photo-38136.jpeg', file.name);
         }
 
         /**
          * @param {String} path - direct path to file
+         * @param {String} fileName
          */
 
     }, {
@@ -38104,12 +38105,12 @@ var Files_View = function (_Component) {
         }
     }], [{
         key: 'downloadFileByPath',
-        value: function downloadFileByPath(path) {
+        value: function downloadFileByPath(path, fileName) {
             var a = document.createElement('a');
             document.body.appendChild(a);
             a.style.display = 'none';
             a.href = path;
-            a.download = file.name;
+            a.download = fileName;
             a.click();
             document.body.removeChild(a);
         }

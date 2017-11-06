@@ -71,7 +71,7 @@
                         return $q.reject();
                     }
 
-                    return $q.when('https://en.wikipedia.org/wiki/Basketball');
+                    return $q.when('https://static.pexels.com/photos/38136/pexels-photo-38136.jpeg');
                 }
 
                 /**
