@@ -3,7 +3,17 @@ Here you may find React and Angular components for file upload with multiple fil
 
 ![](demo.gif)
 
-## Angular
+## Angular 5.0
+```
+<file-upload></file-upload>
+
+<files-view [files]="files"
+            [removeFile]="callback"
+            [downloadFile]="callback">
+</files-view>
+```
+
+## Angular 1.6
 ```
 <file-upload></file-upload>
 
@@ -13,7 +23,7 @@ Here you may find React and Angular components for file upload with multiple fil
 </files-view>
 ```
 
-## React
+## React 16.0
 ```
 <File_Upload/>
 
