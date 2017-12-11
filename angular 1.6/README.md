@@ -9,4 +9,4 @@
 ```
 
 ## Demo:
-Open index.html in a browser and check how components work
+Open **index.html** in a browser and check how components work
