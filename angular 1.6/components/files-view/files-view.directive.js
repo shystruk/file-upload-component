@@ -8,7 +8,7 @@
  * Also, you can configure remove, download file.
  *
  * Example:
- * <files-view files="files"></files-view>
+ * <files-view [files]="files"></files-view>
  *
  * Configuration:
 *       files: '=' - should be an array of files

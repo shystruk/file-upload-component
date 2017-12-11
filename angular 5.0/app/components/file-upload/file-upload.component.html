@@ -1,0 +1,9 @@
+<div class="file-upload">
+    <input type="file" name="file" id="fileUpload" (change)="pushFiles($event)" multiple/>
+    <label for="fileUpload">Add File</label>
+</div>
+
+<files-view [files]="files"
+            [removeFile]="removeFile"
+            [downloadFile]="downloadFile">
+</files-view>

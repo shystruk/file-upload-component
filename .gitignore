@@ -1,3 +1,5 @@
 .idea
 
 react/node_modules
+angular 5.0/node_modules
+angular 5.0/build

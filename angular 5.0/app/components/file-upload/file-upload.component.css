@@ -1,0 +1,20 @@
+.file-upload input {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+.file-upload label {
+    cursor: pointer;
+    color: blue;
+    border: 1px solid black;
+    padding: 5px 15px;
+}
+
+.file-upload label:hover {
+    opacity: 0.5;
+}
+
+.file-upload input:focus + label {
+    outline: 1px solid blue;
+}

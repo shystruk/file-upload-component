@@ -32,6 +32,6 @@
             JAVA: 'fa-file-text-o',
             XML: 'fa-file-text-o',
             DEFAULT: 'fa-file'
-        },
+        }
     });
 })();

@@ -1,0 +1,26 @@
+<div class="files-view">
+
+    <div class="files-view-wrapper">
+
+        <div class="files-view-item" *ngFor="let file of files; index as $index;">
+            <div class="files-view-thumbnail fa"
+                 title="{{file.name}}"
+                 [ngClass]="file.thumbnail"
+                 (click)="download($index)">
+                    <img *ngIf="file.preview.backgroundImage" src="{{file.preview.backgroundImage}}"
+                         alt="{{file.name}}" />
+            </div>
+
+            <div class="files-view-name" (click)="download($index)" title="{{file.name}}">
+                {{file.name}}
+            </div>
+
+            <span *ngIf="removeFile" class="files-view-remove"
+                  (click)="removeFile($index)">
+                x
+            </span>
+        </div>
+
+    </div>
+
+</div>
