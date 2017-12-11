@@ -6,5 +6,5 @@
 ```
 
 ## Demo:
-Open index.html in a browser and check how components work
+Open **index.html** file in a browser and check how components work
 
