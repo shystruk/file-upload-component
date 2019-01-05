@@ -12,8 +12,7 @@ const common = {
     devtool: 'cheap-module-eval-source-map',
     devServer: {
         contentBase: [ path.resolve(PATHS.root, 'build'), path.resolve(PATHS.root, 'vendor') ],
-        port: 8080,
-        inline: false
+        port: 8080
     },
     entry: {
         app: `${PATHS.root}/app.ts`,
