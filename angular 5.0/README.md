@@ -9,8 +9,6 @@
 ```
 
 ## Demo:
-`npm isntall`
-
 `npm run demo`
 
 `open http://localhost:8080/ in a browser`
