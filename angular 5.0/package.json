@@ -4,8 +4,8 @@
   "description": "file upload component on angular 2",
   "main": "app.js",
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.config.js",
-    "demo": "npm isntall && npm run start"
+    "start": "./node_modules/.bin/webpack-dev-server --config ./webpack.config.js",
+    "demo": "npm install && npm run start"
   },
   "keywords": [
     "file",
@@ -30,7 +30,8 @@
     "tslint-loader": "^3.5.3",
     "typings": "^2.1.1",
     "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.9.7",
+    "webpack-cli": "^3.2.0",
+    "webpack-dev-server": "^2.11.2",
     "webpack-vendor-chunk-plugin": "^1.0.0"
   },
   "dependencies": {
